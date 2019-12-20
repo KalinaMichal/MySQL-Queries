@@ -1,0 +1,7 @@
+#zadanie 12
+DELIMITER $$
+CREATE TRIGGER zad12 BEFORE DELETE ON sport FOR EACH ROW 
+BEGIN
+DELETE FROM hobby WHERE  hobby.typ='sport';
+ END$$
+DELIMITER ;

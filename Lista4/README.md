@@ -1,37 +1,50 @@
-0->	otwieram cmd jako adm
-->	E:
-->	cd WORK
-->	cd MongoDB
-->	cd bin
-	|
-	|->	net start MongoDB
-	|->	mongod
-->mongo
+## MongoDB Setup
+ Usuwanie starej i instalowanie najnowszej wersji Java w systemie Microsoft Windows
 
-cd WORK\MongoDB\bin
+```
+$ otwieram cmd jako adm
+$ E:
+$ cd WORK
+$ cd MongoDB
+$ cd bin
+$ net start MongoDB
+$ mongod
+$ mongo
+$
+$
+$ cd WORK\MongoDB\bin
+$ use MDBHobby
+```
 
-use MDBHobby
 
 
+## Wyswietl kolekcję
 
-/*Wyswietl kolekcj�*/
-db.zwierzak.find().pretty()
-db.sport.find()
-db.osoba.find()
+```
+$ db.zwierzak.find().pretty()
+$ db.sport.find()
+$ db.osoba.find()
 
-/*Pokaz kolekcje*/
-show collections
+```
 
-/*Usun kolekcje*/
- db.sport.drop() 
- db.zwierzak.drop() 
+## Pokaz kolekcje
+```
+$ show collections
+```
 
-/*Tutaj importuje plik JSON*/
-mongoimport --jsonArray  -d DatabaseN -c collectionName /filePath/filename.json
-mongoimport --jsonArray  -d MDBHobby -c zwierzak daneZwierzak.json
-mongoimport --jsonArray  -d MDBHobby -c zwierzak zwierzak.json
-mongoimport --jsonArray  -d MDBHobby -c osoba osoba.json
 
+## Usun kolekcję
+```
+$ db.sport.drop() 
+$ db.zwierzak.drop() 
+```
+## Importuje pliku JSON
+```
+$ mongoimport --jsonArray  -d DatabaseN -c collectionName /filePath/filename.json
+$ mongoimport --jsonArray  -d MDBHobby -c zwierzak daneZwierzak.json
+$ mongoimport --jsonArray  -d MDBHobby -c zwierzak zwierzak.json
+$ mongoimport --jsonArray  -d MDBHobby -c osoba osoba.json
+```
 
 var file = cat('./new.json');     # file name
 use testdb                        # db name

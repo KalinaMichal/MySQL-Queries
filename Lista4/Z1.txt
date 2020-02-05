@@ -1,0 +1,197 @@
+0->	otwieram cmd jako adm
+->	E:
+->	cd WORK
+->	cd MongoDB
+->	cd bin
+	|
+	|->	net start MongoDB
+	|->	mongod
+->mongo
+
+cd WORK\MongoDB\bin
+
+use MDBHobby
+
+
+/*Wyswietl kolekcjê*/
+db.zwierzak.find()
+db.sport.find()
+
+/*Pokaz kolekcje*/
+show collections
+
+/*Usun kolekcje*/
+ db.sport.drop() 
+ db.zwierzak.drop() 
+
+//*** ZADANIE 1 ***\\
+/*dodaj coœ tam*/
+db.zwierzak.insert ({name: "Azor", owner: "Luka", species: "dog", sex: "m", birth: "2018-11-11"})
+
+/*Wyswietl kolekcjê*/
+db.zwierzak.find().pretty()
+db.sport.find()
+db.osoba.find()
+
+/*Pokaz kolekcje*/
+show collections
+
+
+/*Tutaj importuje plik JSON*/
+mongoimport --jsonArray  -d DatabaseN -c collectionName /filePath/filename.json
+mongoimport --jsonArray  -d MDBHobby -c zwierzak daneZwierzak.json
+mongoimport --jsonArray  -d MDBHobby -c zwierzak zwierzak.json
+mongoimport --jsonArray  -d MDBHobby -c osoba osoba.json
+
+
+
+//*** ZADANIE 2 ***\\
+db.sport.insert ({nazwa:"Brydz",typ:"indywidualny",lokacja:"hala"})
+db.sport.insert ({nazwa: "SalsaFit" ,typ: "indywidualny",lokacja: ["hala","zewnatrz"]})
+db.sport.insert ({nazwa: "Karate-Shotokan" ,typ: ["indywidualny","druzynowy"],lokacja: ["hala","zewnatrz"]})
+db.sport.insert ({nazwa: "Silka" ,typ: "indywidualny",lokacja: "hala"})
+db.sport.insert ({nazwa: "Poker" ,typ: "indywidualny",lokacja: "hala"})
+db.sport.insert ({nazwa: "UniHockey" ,typ: "druzynowy",lokacja: "hala"})
+db.sport.insert ({nazwa: "StreetWorkout" ,typ: "indywidualny",lokacja: "zewnatrz"})
+db.sport.insert ({nazwa: "Biegi przelajowe" ,typ: "indywidualny",lokacja: "zewnatrz"})
+db.sport.insert ({nazwa: "Lekkoatletyka KS Tecza" ,typ: ["indywidualny","druzynowy"],lokacja: ["hala","zewnatrz"],sekcja:["sprinterzy","dlugasy"]})
+db.sport.insert ({nazwa: "Lekkoatletyka ORKAN Wrzesnia" ,typ: ["indywidualny","druzynowy"],lokacja: ["hala","zewnatrz"],sekcja:"skoczkow"})
+
+//*** ZADANIE 3 ***\\
+//*WERSJA 1*//
+db.gatunek.insert ({nazwa: "pies", min_waga: "", max_waga: "", gama_ubarwienia:"",dlugosc_zycia: ""})
+db.gatunek.insert ({nazwa: "pies",rasa:"cocer spaniel", min_waga: "", max_waga: "", gama_ubarwienia:"",dlugosc_zycia: ""})
+
+db.gatunek.insert ({nazwa: "pies",rasa : [{nazwa : "cocer spaniel", , min_waga: "10", max_waga: "15", gama_ubarwienia:"czarny",dlugosc_zycia: "14"},
+{nazwa : "Owczarek_niemiecki", , min_waga: "20", max_waga: "40", gama_ubarwienia:"czarny",dlugosc_zycia: "17"}]})
+
+
+//*WERSJA 2*//
+db.zwierzeta.insert({
+	gatunek: "pies",
+	rasy: [ "jamnik", "buldog", "golden", "bernardyn"],
+	minimalnaWaga: 5,
+	maksymalnaWaga: 100,
+	ubarwienie: ["br¹zowe", "be¿owe", "jasne", "ciemne"],
+	œredniaD³ugoœæ¯ycia: 9
+})
+db.zwierzeta.insert({
+	gatunek: "zolw",
+	rasy: [ "wodny", "ladowy"],
+	minimalnaWaga: 3,
+	maksymalnaWaga: 300,
+	ubarwienie: ["zielony","czarny"],
+	œredniaD³ugoœæ¯ycia: 100
+})
+db.zwierzeta.insert({
+	gatunek: "kangur",
+	rasy: [ "bialy","duzy","karlowaty"],
+	minimalnaWaga: 20,
+	maksymalnaWaga: 110,
+	ubarwienie: ["brazowe", "biale", "szare", "czarne"],
+	œredniaD³ugoœæ¯ycia: 40
+})
+db.zwierzeta.insert({
+	gatunek: "mucha",
+	rasy: [ "bialy","duzy"],
+	minimalnaWaga: 1,
+	maksymalnaWaga: 2,
+	ubarwienie: ["brazowe", "biale", "szare", "czarne"],
+	œredniaD³ugoœæ¯ycia: 1
+})
+db.zwierzeta.insert({
+	gatunek: "zaba",
+	minimalnaWaga: 2,
+	maksymalnaWaga: 5,
+	ubarwienie: ["brazowe", "biale", "szare", "czarne"],
+	œredniaD³ugoœæ¯ycia: 4
+})
+
+
+
+
+//*** ZADANIE 4 ***\\
+db.osoba.insert ({imie : "Tamara", nazwisko : "Nikosicko", Obywatelstwo : ["Serbija","CrnaGora"]})
+mongoimport --jsonArray  -d MDBHobby -c osoba zadanie4.json
+db.osoba.find().pretty()
+db.osoba.insert({"imie" : "Pavel","nazwisko" : "Argonov","Obywatelstwo" : [{"Rosyja" : [{"podamiot_federalny" : "Kaliningrad","miasto" : "Wolodino"}]},{"Niemcy" : [{"bundestag" : "Bawaria","miasto" : "Monachium",}]}]})
+db.osoba.insert ({imie : "Tamara", nazwisko : "Nikosicko", Obywatelstwo : ["Serbija","CrnaGora"]})
+db.osoba.insert ([{imie : "Denis", nazwisko : "Kalinic", Obywatelstwo : ["Bosnia&Harcegovina","CrnaGora"]},{imie : "Nikola", nazwisko : "Tavelic", Obywatelstwo : ["Chorwacja","CrnaGora"]},{imie : "Milka", nazwisko : "Kalinic", Obywatelstwo : ["Slowenia","Chorwacja"]},{imie : "Luka", nazwisko : "Brajanovic", Obywatelstwo : ["Chorwacja","Bosnia"]},{imie : "Andrea", nazwisko : "Malunkova", Obywatelstwo : ["Macedonia_Polnocna","Bulgaria"], wiek : "19"},{imie : "Patrik", nazwisko : "Nikosicko", Obywatelstwo : ["Kosovo","Albania"]},{imie : "Ivona", nazwisko : "Draceva", Obywatelstwo : "Bosnia&Harcegovina", wiek : "18"}])
+
+db.osoba.insert({"imie" : "Dimitrij","nazwisko" : "Argonov","Obywatelstwo" : [{"Rosyja" : {"podamiot_federalny" : "Obwod_Krymski","miasto" : "Sewastopol"}},"Belarus"],wiek : "20", zainteresowania: ["Karate","Surival"]})
+db.osoba.insert ({imie : "Jan", nazwisko : "Nowak", Obywatelstwo : "Polska"})
+
+db.osoba.insert ({imie : "Mo", nazwisko : "Farah", Obywatelstwo : "Kenia",zainteresowania: "Lekkoatletyka"})
+db.osoba.insert ({imie : "Jackob", nazwisko : "Ingebrugsten", Obywatelstwo : "Norwegia",zainteresowania: "Lekkoatletyka"})
+db.osoba.insert ({imie : "Jackob_Junior", nazwisko : "Ingebrugsten", Obywatelstwo : "Norwegia",zainteresowania: "Lekkoatletyka"})
+db.osoba.insert ({imie : "Jakub", nazwisko : "Krzewina", Obywatelstwo : "Polska",zainteresowania: "Lekkoatletyka"})
+db.osoba.insert ({imie : "Ewa", nazwisko : "Swoboda", Obywatelstwo : "Polska",zainteresowania: "Lekkoatletyka"})
+db.osoba.insert ({imie : "Marcin", nazwisko : "Gordat", Obywatelstwo : "Polska",zainteresowania: ["hokej","koszykowka"]})
+
+db.osoba.insert ({imie : "Marcin", nazwisko : "Gordat", Obywatelstwo : "Polska",zainteresowania: ["narciarstwo","strzelectwo"]})
+
+
+db.osoba.insert ({imie : "Nikola", nazwisko : "Nazarenko", Obywatelstwo : "Macedonia_polnocna",wiek: "20",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Anna", nazwisko : "terjesic", Obywatelstwo : "Serbia",wiek: "12",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Katarina", nazwisko : "Monur", Obywatelstwo : "Albania",wiek: "18",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Dena", nazwisko : "Juvchanko", Obywatelstwo : "Ukraina",wiek: "22",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Thomas", nazwisko : "Shultz", Obywatelstwo : "Austria",wiek: "30",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Milca", nazwisko : "Dedeic", Obywatelstwo : "Serbia",wiek: "23",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Ivona", nazwisko : "Jovic", Obywatelstwo : "CrnaGora",wiek: "24",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Luka", nazwisko : "Mitrovic", Obywatelstwo : "Serbia",wiek: "40",zainteresowania: "psy"})
+
+#tu nizej jest rzecz zagniezdzona
+db.osoba.insert ({imie : "Luka", nazwisko : "Mitrovic", Obywatelstwo : "Serbia",posiadaniezwierzeta: [{imie:"Rafal", gatunek:"kon"},{imie:"Ropuch",gatunek:"zaba"}]wiek: "40",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Andrea", nazwisko : "Rakicic", Obywatelstwo : "Serbia",posiadaniezwierzeta: [{imie:"Rafal", gatunek:"kon"},{imie:"Ropuch",gatunek:"zaba"}]wiek: "40",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Milka", nazwisko : "Mitrovic", Obywatelstwo : "Serbia",posiadaniezwierzeta: [{imie:"Rafal", gatunek:"kon"},{imie:"Ropuch",gatunek:"zaba"}]wiek: "40",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Rena", nazwisko : "Mitrovic", Obywatelstwo : "Serbia",posiadaniezwierzeta: [{imie:"Rafal", gatunek:"kon"},{imie:"Ropuch",gatunek:"zaba"}]wiek: "40",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Yvonee", nazwisko : "Holubkova", Obywatelstwo : "Serbia",posiadaniezwierzeta: [{imie:"Rafal", gatunek:"kon"},{imie:"Ropuch",gatunek:"zaba"}]wiek: "40",zainteresowania: "psy"})
+db.osoba.insert ({imie : "Luka", nazwisko : "Petrovic", Obywatelstwo : "Serbia",posiadaniezwierzeta: [{imie:"Rafal", gatunek:"kon"},{imie:"Ropuch",gatunek:"zaba"}]wiek: "40",zainteresowania: "psy"})
+
+
+
+
+
+
+
+//** ZADANIE 6 **\\ - gotowiec
+db.zwierzak.find({species: /cat/ },{"name":1,"owner":1,_id:0}).pretty()
+
+//** ZADANIE 7 **\\ - gotowiec
+db.osoba.find({ $or:[ {Obywatelstwo: "Polska", imie: "Jan"}, {'Obywatelstwo.1': {$exists: true}}] },{"Obywatelstwo":1,"imie":1,_id:0}).pretty()
+db.osoba.find({ Obywatelstwo: "Polska", imie: "Jan"}).pretty()
+db.osoba.find({'Obywatelstwo.1': {$exists: true}}).pretty()
+
+
+//** ZADANIE 8 **\\ - dokoncz
+
+
+//** ZADANIE 10 **\\ - gotowiec
+db.osoba.insert ({imie : "Marcin", nazwisko : "Gordat", Obywatelstwo : "Polska",zainteresowania: ["hokej","koszykowka"]})
+db.osoba.insert ({imie : "Marcin", nazwisko : "Gordat", Obywatelstwo : "Polska",zainteresowania: ["hokej","koszykowka"]})
+db.osoba.find({ $or:[ {'zainteresowania.0' : "koszykowka",'zainteresowania.1' : "hokej"}, {'zainteresowania.1' : "koszykowka",'zainteresowania.0' : "hokej"} ]}).pretty()
+db.osoba.deleteMany({ $or:[ {'zainteresowania.0' : "koszykowka",'zainteresowania.1' : "hokej"}, {'zainteresowania.1' : "koszykowka",'zainteresowania.0' : "hokej"} ]})
+
+
+
+//** ZADANIE 13 **\\ - gotowiec
+db.osoba.find({zainteresowania: "psy" },{"imie":1,"nazwisko":1,"Obywatelstwo":1,"wiek":1,_id:0}).sort( { wiek: 1 } ).pretty()
+
+
+//**ZADANIE 11**\\ - gotowiec
+db.osoba.insert ({imie : "Marcin", nazwisko : "Gordat", Obywatelstwo : "Polska",zainteresowania: ["narciarstwo","strzelectwo"]})
+db.osoby.updateMany({zainteresowania: {$all: ["narciarstwo", "strzelectwo"]}},{$set: {zainteresowania: "biatlon"}})
+
+
+//**ZADANIE 12**\\ - gotowiec
+db.osoby.updateMany({"narodowosc.kraj": "Rosja"},{$set: {"narodowosc": "Rosja"}})
+
+
+/** ZADANIE **\\
+
+
+var file = cat('./new.json');     # file name
+use testdb                        # db name
+var o = JSON.parse(file);         # convert string to JSON
+db.forms.insert(o)                # collection name
+

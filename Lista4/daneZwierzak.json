@@ -1,0 +1,21 @@
+[
+{"type":"header","version":"4.7.9","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"hobby"},
+{"type":"table","name":"zwierzak","database":"hobby","data":
+[
+{"name":"Fluffy","owner":"Harold","species":"cat","sex":"f","birth":"1993-02-04","death":null,"ID":"1"},
+{"name":"Claws","owner":"Gwen","species":"cat","sex":"m","birth":"1994-03-17","death":"0000-00-00","ID":"5"},
+{"name":"Fang","owner":"Benny","species":"dog","sex":"m","birth":"1990-08-27","death":null,"ID":"3"},
+{"name":"Bowser","owner":"Diane","species":"dog","sex":"m","birth":"1979-08-31","death":"1995-07-29","ID":"4"},
+{"name":"Whistler","owner":"Gwen","species":"bird","sex":null,"birth":"1997-12-09","death":"0000-00-00","ID":"5"},
+{"name":"Azor","owner":"Ivan","species":"dog","sex":"m","birth":"2019-10-18","death":"2019-10-26","ID":"6"},
+{"name":"Reksio","owner":"Benny","species":"dog","sex":"f","birth":"2019-10-25","death":"2019-11-25","ID":"3"},
+{"name":"Azor","owner":"Benny","species":"dog","sex":"m","birth":"1993-07-04","death":"1999-09-25","ID":"3"},
+{"name":"Hook","owner":"Gwen","species":"hamster","sex":"m","birth":"2001-02-09","death":"2019-11-25","ID":"5"},
+{"name":"Dario","owner":"Benny","species":"goat","sex":"m","birth":"1999-09-23","death":"2019-11-25","ID":"3"},
+{"name":"Zosia","owner":"Harold","species":"goat","sex":"f","birth":"0000-00-00","death":"2019-11-25","ID":"1"},
+{"name":"Matolek","owner":"Ivan","species":"goat","sex":"m","birth":"1999-09-09","death":"2019-11-25","ID":"6"},
+{"name":"Tosia","owner":"Jovan","species":"sheep","sex":"f","birth":"2007-12-09","death":"2019-11-25","ID":"10"}
+]
+}
+]
